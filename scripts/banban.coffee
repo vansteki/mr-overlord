@@ -12,3 +12,6 @@ module.exports = (robot) ->
 
     robot.hear /overlord/i, (res) ->
     	res.send "婊子們找我?"
+    
+    robot.hear /boss/ig, (res) ->
+      res.send "B0ss是他馬的爽兵!"
