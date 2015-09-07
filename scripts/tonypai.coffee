@@ -30,8 +30,8 @@ module.exports = (robot) ->
               mt = pad.substring(0, pad.length - mt.length) + mt
               dt = pad.substring(0, pad.length - dt.length) + dt
               # result
-              weather += yr + '-' + mt + '-' + dt + ' ' + val.weather[0].main + '(' + val.weather[0].description + ') ' + val.deg / 10 + '°C'
+              weather += yr + '-' + mt + '-' + dt + ' ' + val.weather[0].main + '(' + val.weather[0].description + ') ' + val.deg / 10 + '°C\n'
             
             result.send weather
           else
-            result.send url+"("+data.cod+")\nweather [Taiwan city name]"
+            result.send "GET "+url+"("+data.cod+")\nweather [taiwan city name]"
