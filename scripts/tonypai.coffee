@@ -12,7 +12,7 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         
         if err
-          res.send err.toString()
+          result.send err.toString()
         else
           data = JSON.parse body
           if data.cod is "200"
