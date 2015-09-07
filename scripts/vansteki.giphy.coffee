@@ -16,5 +16,3 @@ module.exports = (robot) ->
     getRandomGiphyGif(msg, tags)
   robot.hear /bitch/ig, (msg) ->
     getRandomGiphyGif(msg, 'bitch')
-  robot.hear /婊子/ig, (msg) ->
-    msg.send "在哪? 我褲子都脫了!"
