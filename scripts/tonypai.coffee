@@ -6,8 +6,10 @@ module.exports = (robot) ->
       city = "Taichung"
     else
       city = result[2]
-
-    robot.http("http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+",tw")
+    
+    url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+",tw"
+    
+    robot.http(url)
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         
@@ -32,4 +34,4 @@ module.exports = (robot) ->
             
             result.send weather
           else
-            result.send "weather [Taiwan city name]"
+            result.send url+"("+data.cod+")\nweather [Taiwan city name]"
