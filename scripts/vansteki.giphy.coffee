@@ -15,5 +15,6 @@ module.exports = (robot) ->
     tags = msg.match[1].trim().split(', ')
     getRandomGiphyGif(msg, tags)
   robot.hear /bitch/ig, (msg) ->
-    msg.send "我最喜歡婊子了!"
     getRandomGiphyGif(msg, 'bitch')
+  robot.hear /婊子/ig, (msg) ->
+    msg.send "在哪? 我褲子都脫了!"
