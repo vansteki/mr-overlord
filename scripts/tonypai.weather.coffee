@@ -1,13 +1,15 @@
 module.exports = (robot) ->
 
-  robot.hear /(.*weather) (.*)/i, (result) ->
+  robot.hear /[w|W]{1}eather (.*),(.*)/i, (result) ->
 
     if result.match.length is 0
-      city = "Taichung"
+      city = "taichung"
+	  country = "tw"
     else
-      city = result.match[2]
+      city = result.match[2].trim()
+	  country = result.match[3].trim()
     
-    url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+",tw"
+    url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+","+country
     
     robot.http(url)
       .header('Accept', 'application/json')
