@@ -2,10 +2,10 @@ module.exports = (robot) ->
 
   robot.hear /(.*weather) (.*)/i, (result) ->
 
-    if result.length is 0
+    if result.match.length is 0
       city = "Taichung"
     else
-      city = result[2]
+      city = result.match[2]
     
     url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+",tw"
     
