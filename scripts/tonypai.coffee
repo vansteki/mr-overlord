@@ -33,6 +33,5 @@ module.exports = (robot) ->
               weather += yr + '-' + mt + '-' + dt + ' ' + val.weather[0].main + '(' + val.weather[0].description + ') ' + (val.temp.day / 10).toFixed(1) + '°C\n'
               
             result.send weather
-            result.send "/giphy weather"
           else
             result.send "GET "+url+"("+data.cod+")\nweather [taiwan city name]"
