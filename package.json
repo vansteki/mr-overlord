@@ -21,7 +21,7 @@
   },
   "scripts": {
     "preinstall": "npm install -g mocha coffee-script npm@2.0.0 watch",
-    "localbot": "node_modules\\.bin\\hubot.cmd --name mr.overlord %*",
+    "localbot": "node_modules\\.bin\\hubot.cmd --name mr.overlord %* || node_modules/.bin/hubot",
     "mocha": "mocha --compilers coffee:coffee-script/register",
     "watchtest": "watch \"npm run mocha -- ./test\" ./test"
   },
