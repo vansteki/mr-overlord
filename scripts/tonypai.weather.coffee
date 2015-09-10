@@ -9,7 +9,7 @@ module.exports = (robot) ->
       city = result.match[1].trim()
       country = result.match[2].trim()
     
-    url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+"," + country
+    url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+"," + country + "&units=metric"
     
     robot.http(url)
       .header('Accept', 'application/json')
@@ -32,7 +32,7 @@ module.exports = (robot) ->
               mt = pad.substring(0, pad.length - mt.length) + mt
               dt = pad.substring(0, pad.length - dt.length) + dt
               # result
-              weather += yr + '-' + mt + '-' + dt + ' ' + val.weather[0].main + '(' + val.weather[0].description + ') ' + (val.temp.day / 10).toFixed(1) + '°C\n'
+              weather += yr + '-' + mt + '-' + dt + ' ' + val.weather[0].main + '(' + val.weather[0].description + ') ' + val.temp.min.toFixed(1) + '°C~' + val.temp.max.toFixed(1) + '°C\n'
               
             result.send weather
           else
