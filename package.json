@@ -19,7 +19,17 @@
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.3.0"
   },
+  "scripts": {
+    "localbot": "node_modules\\.bin\\hubot.cmd --name mr.overlord %*",
+    "test": "mocha --compilers coffee:coffee-script/register"
+  },
   "engines": {
     "node": "0.10.x"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "hubot-mock-adapter": "^1.0.0",
+    "mock-hubot": "^1.0.6",
+    "coffee-script": "latest"
   }
 }
