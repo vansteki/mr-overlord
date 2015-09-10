@@ -9,7 +9,7 @@ module.exports = (robot) ->
       city = result.match[1].trim()
       country = result.match[2].trim()
     
-    url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+"," + country
+    url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+"," + country + "&units=metric"
     
     robot.http(url)
       .header('Accept', 'application/json')
