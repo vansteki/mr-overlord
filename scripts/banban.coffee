@@ -15,3 +15,6 @@ module.exports = (robot) ->
     
     robot.hear /boss/ig, (res) ->
       res.send "B0ss是他馬的爽兵!"
+	  
+	robot.hear /pp/i, (res) ->
+	  res.send "PP一進來怎麼就滿屋子菜味?"
