@@ -6,4 +6,5 @@ module.exports = (robot) ->
   		youtube.get msg.match[1], ((data, title) ->
   			msg.send ">" + title
   			msg.send "<" + data[0].title + "|" + data[0].link + ">"
+  			msg.send "<https://github.com/|yoooo> fix some broken"
   		).bind(msg)
