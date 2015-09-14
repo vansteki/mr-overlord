@@ -28,4 +28,4 @@ module.exports = (robot) ->
     robot.hear /md5ify/, (msg)->
       m = crypto.createHash('md5').update("md5ify this text").digest("hex")
       msg.send m
-      msg.send util.inspect(msg)
+      msg.send "util.inspect(msg):\n" + util.inspect(msg)
