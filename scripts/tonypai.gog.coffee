@@ -18,5 +18,5 @@ module.exports = (robot) ->
 				else
 					data = JSON.parse body
 					for product in data.products
-						list += product.title + "\nPrice: $" + product.price.amount + "/$" + product.price.baseAmount + " (" + product.price.discountPercentage + "%)\nhttp://www.gog.com/" + product.url + "\n\n"
+						list += product.title + "\nPrice: $" + product.price.amount + "/$" + product.price.baseAmount + " (" + product.price.discountPercentage + "%)\nhttp://www.gog.com" + product.url + "\n\n"
 					result.send list
