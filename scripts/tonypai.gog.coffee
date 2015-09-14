@@ -6,9 +6,9 @@ module.exports = (robot) ->
 	robot.hear /gog (.*),(.*)/i, (result) ->
 		sort = result.match[1].trim()
 		num = result.match[2]
-		
+
 		url = "http://www.gog.com/games/ajax/filtered?sort="+sort+"&limit=" + num
-		
+
 		robot.http(url)
 			.header('Accept', 'application/json')
 			.get() (err, res, body) ->
