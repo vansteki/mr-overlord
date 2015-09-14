@@ -17,14 +17,15 @@
     "hubot-rules": "^0.1.1",
     "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.2.0",
-    "hubot-slack": "^3.3.0"
+    "hubot-slack": "^3.3.0",
+    "node-youtu-be": "^1.0.1"
   },
   "scripts": {
-    "preinstall":"npm install -g coffee-script",
+    "preinstall": "npm install -g coffee-script",
     "self-preinstall": "npm install -g mocha npm@2.0.0 watch",
     "localbot": "node_modules\\.bin\\hubot.cmd --name mr.overlord %* || node_modules/.bin/hubot",
     "mocha": "mocha --compilers coffee:coffee-script/register",
-    "test":"mocha --compilers coffee:coffee-script/register -- ./test",
+    "test": "mocha --compilers coffee:coffee-script/register -- ./test",
     "watchtest": "watch \"npm run mocha -- ./test\" ./test"
   },
   "engines": {

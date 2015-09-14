@@ -1,3 +1,6 @@
+util = require "util"
+crypto = require "crypto"
+
 module.exports = (robot) ->
 
    robot.hear /badger/i, (res) ->
@@ -12,9 +15,17 @@ module.exports = (robot) ->
 
     robot.hear /overlord/i, (res) ->
     	res.send "婊子們找我?"
-    
+
     robot.hear /boss/ig, (res) ->
       res.send "B0ss是他馬的爽兵!"
-	  
+
     robot.hear /pp/i, (res) ->
       res.send "PP怎麼一進來就滿屋子菜味?"
+
+    robot.hear /婊子|必取/ig, (msg) ->
+      msg.send "在哪? 我褲子都脫了!"
+
+    robot.hear /md5ify/, (msg)->
+      m = crypto.createHash('md5').update("md5ify this text").digest("hex")
+      msg.send m
+      msg.send "util.inspect(msg):\n" + util.inspect(msg)
