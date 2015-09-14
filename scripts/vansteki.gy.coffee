@@ -1,9 +1,7 @@
-u = require "util"
 youtube = require('node-youtu-be')
 module.exports = (robot) ->
-	robot.hear /gy (https?:\/\/www.youtube.com\/watch\?\w=.*)/i, (msg) ->
-  		youtube.get msg.match[1], ((data, title) ->
-  			msg.send ">" + title
-  			msg.send ">" + data[0].title
-  			msg.send ">" + data[0].link
-  		).bind(msg)
+	robot.hear /gy (https?:\/\/www.youtube.com\/watch\?\w=.*)/i, (res) ->
+  		youtube.get res.match[1], ((data, title) ->
+  			item =  "> #{title} \n> data[0].title \n> data[0].link"
+  			res.send item
+  		).bind(res)
