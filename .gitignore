@@ -3,3 +3,8 @@ node_modules
 .hubot_history
 .*log*.*
 *.log
+Procfile
+.idea
+iron.json
+*.xml
+*.zip

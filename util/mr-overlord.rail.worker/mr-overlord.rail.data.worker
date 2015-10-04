@@ -1,0 +1,10 @@
+# define the runtime language
+set_env "TZ", "Asia/Taipei"
+runtime "node"
+stack "node-0.11"
+# dir "node_modules"
+file "package.json"
+build "npm config set strict-ssl false; npm install --production"
+remote
+# exec is the file that will be executed:
+exec "mr-overlord.rail.data.js"
