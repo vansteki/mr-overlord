@@ -11,7 +11,7 @@ var fileDate = (function() { //return format like 20150926
 
 module.exports = function(robot) {
 
-robot.hear(/ri (\D+)>(\D+)/i, function(res) {
+robot.hear(/ri (\D+)>(\D+)/i, function(msg) {
     var dataPrepare = new EventEmitter();
     var getUnique = function(arr) {
         var que = [];
@@ -54,31 +54,32 @@ robot.hear(/ri (\D+)>(\D+)/i, function(res) {
 
     (function() {
         var result = "";
-        https.get("https://mr--overlord.firebaseio.com/rail/" + fileDate + ".json", function(res, err) {
+        var url = "https://mr--overlord.firebaseio.com/rail/" + fileDate + ".json";
+        https.get(url, function(res, err) {
             res.on("data", function(res) {
                 result += res.toString();
             }).on("end", function() {
                 // console.log(result)
                 data = result;
                 trainInfo = JSON.parse(result).TaiTrainList.TrainInfo;
-                dataPrepare.emit('done');
+                dataPrepare.emit('done', msg);
             });
         });
-    })(trainInfo);
+    })(trainInfo, msg);
 
     dataPrepare.on('donex', function() {
         console.log(trainInfo, typeof trainInfo, trainInfo.forEach, trainInfo.length)
         debugger
     })
 
-    dataPrepare.on('done', function() {
+    dataPrepare.on('done', function(msg) {
 
         stationList.map(function(station,k){
-            if (station.name === res.match[2]) settings.des = station;
+            if (station.name === msg.match[2]) settings.des = station;
             // if (station.name === input[2]) settings.des = station;
         });
         stationList.map(function(station,k){
-            if (station.name === res.match[1]) settings.start = station;
+            if (station.name === msg.match[1]) settings.start = station;
             // if (station.name === input[1]) settings.start = station;
         });
         // console.log(trainInfo, settings.des, settings.start, _.contains, trainInfo.length);
@@ -125,9 +126,11 @@ robot.hear(/ri (\D+)>(\D+)/i, function(res) {
         })
 
         // console.log(outPutPairList)
-        console.log("\n車次\t開車\t抵達\n")
+        msg.send("\n"+ fileDate + " 由 " + msg.match[2] + " 開往 " + msg.match[1])
+        msg.send("\n車次\t開車\t抵達\t\n")
         outPutPairList.forEach(function(trainInfo) {
-            console.log("%s\t%s\t%s", trainInfo.Train, trainInfo.pair[0].ARRTime.slice(0,-3), trainInfo.pair[1].DEPTime.slice(0,-3));
+            //console.log("%s\t%s\t%s", trainInfo.Train, trainInfo.pair[0].ARRTime.slice(0,-3), trainInfo.pair[1].DEPTime.slice(0,-3));
+            msg.send(trainInfo.Train + "\t" + trainInfo.pair[0].ARRTime.slice(0,-3) + "\t" +  trainInfo.pair[1].DEPTime.slice(0,-3))
         });
     });//dataPrepare.on done
 }); //end robot.hear
