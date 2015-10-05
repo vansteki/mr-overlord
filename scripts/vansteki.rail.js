@@ -126,12 +126,14 @@ robot.hear(/ri (\D+)>(\D+)/i, function(msg) {
         })
 
         // console.log(outPutPairList)
-        msg.send("\n"+ fileDate + " 由 " + msg.match[2] + " 開往 " + msg.match[1])
+        msg.send("\n"+ fileDate + " 由 " + msg.match[2] + " 開往 " + msg.match[1] + " 的列車")
         msg.send("\n車次\t開車\t抵達\t\n")
+        var table = "";
         outPutPairList.forEach(function(trainInfo) {
             //console.log("%s\t%s\t%s", trainInfo.Train, trainInfo.pair[0].ARRTime.slice(0,-3), trainInfo.pair[1].DEPTime.slice(0,-3));
-            msg.send(trainInfo.Train + "\t" + trainInfo.pair[0].ARRTime.slice(0,-3) + "\t" +  trainInfo.pair[1].DEPTime.slice(0,-3))
+            table += trainInfo.Train + "\t" + trainInfo.pair[0].ARRTime.slice(0,-3) + "\t" +  trainInfo.pair[1].DEPTime.slice(0,-3) + "\n"
         });
+        msg.send(table)
     });//dataPrepare.on done
 }); //end robot.hear
 };//end module export
