@@ -7,6 +7,6 @@ https.get(url, function(res, err) {
 		if (chunk.toString() == "Cannot GET /\n")
 			console.log("GET DONE", new Date)
 		else
-			console.log("WARNING: WEIRF STATE")
+			console.log("WARNING: WEIRD STATE")
 	})
 })
