@@ -1,0 +1,4 @@
+set_env "TZ", "Asia/Taipei"
+runtime "node"
+stack "node-0.11"
+exec "ironPeter.js"
