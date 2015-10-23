@@ -20,7 +20,7 @@ module.exports = (robot) ->
       res.send "B0ss是他馬的爽兵!"
 
     robot.hear /pp/i, (res) ->
-      res.send "PP怎麼一進來就滿屋子菜味?"
+      res.send "有沒有PP進的是監獄的八卦?"
 
     robot.hear /婊子|必取/ig, (msg) ->
       msg.send "在哪? 我褲子都脫了!"
