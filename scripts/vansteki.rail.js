@@ -92,7 +92,7 @@ function TimeFilter() {
 
 module.exports = function(robot) {
 
-    robot.hear(/ri help|-h|\?/i, function(msg) {
+    robot.hear(/ri \?/i, function(msg) {
         var help =
             "\nshow all train: \n ri 大慶>清水 \n" +
             "show available train from now: \n ri 新竹>台北 -t now \n";
