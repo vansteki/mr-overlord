@@ -20,7 +20,7 @@ const config = {
 //    projectId: 'api-project-936567901853',
 //    keyFilename: 'scripts/test-06eca1432d47.json'
 //};
-var gcloud = require('gcloud')(testConfig),
+var gcloud = require('gcloud')(config),
     vision = gcloud.vision();
 var cmd = require("commander");
 
