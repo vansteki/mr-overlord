@@ -1,42 +1,43 @@
 {
-    "name": "mr.overlord",
-    "version": "0.0.0",
-    "private": true,
-    "author": "vansteki <vansteki.tw@gmail.com>",
-    "description": "A simple helpful robot for your Company",
-    "dependencies": {
-        "hubot": "^2.16.0",
-        "hubot-diagnostics": "0.0.1",
-        "hubot-google-images": "^0.2.1",
-        "hubot-google-translate": "^0.2.0",
-        "hubot-help": "^0.1.1",
-        "hubot-heroku-keepalive": "^1.0.0",
-        "hubot-maps": "0.0.2",
-        "hubot-pugme": "^0.1.0",
-        "hubot-redis-brain": "0.0.3",
-        "hubot-rules": "^0.1.1",
-        "hubot-scripts": "^2.16.2",
-        "hubot-shipit": "^0.2.0",
-        "hubot-slack": "^3.3.0",
-        "lodash": "^3.10.1",
-        "node-youtu-be": "^1.0.1",
-        "gcloud": "*",
-        "commander": "*"
-    },
-    "scripts": {
-        "preinstall": "npm install -g coffee-script",
-        "self-preinstall": "npm install -g mocha npm@2.0.0 watch",
-        "localbot": "node_modules\\.bin\\hubot.cmd --name mr.overlord %* || node_modules/.bin/hubot",
-        "mocha": "mocha --compilers coffee:coffee-script/register",
-        "test": "mocha --compilers coffee:coffee-script/register -- ./test",
-        "watchtest": "watch \"npm run mocha -- ./test\" ./test"
-    },
-    "engines": {
-        "node": "6.0.0"
-    },
-    "devDependencies": {
-        "chai": "^3.2.0",
-        "hubot-mock-adapter": "^1.0.0",
-        "mock-hubot": "^1.0.6"
-    }
+  "name": "mr.overlord",
+  "version": "0.0.0",
+  "private": true,
+  "author": "vansteki <vansteki.tw@gmail.com>",
+  "description": "A simple helpful robot for your Company",
+  "dependencies": {
+    "commander": "*",
+    "hubot": "^2.16.0",
+    "hubot-diagnostics": "0.0.1",
+    "hubot-google-images": "^0.2.1",
+    "hubot-google-translate": "^0.2.0",
+    "hubot-help": "^0.1.1",
+    "hubot-heroku-keepalive": "^1.0.0",
+    "hubot-maps": "0.0.2",
+    "hubot-pugme": "^0.1.0",
+    "hubot-redis-brain": "0.0.3",
+    "hubot-rules": "^0.1.1",
+    "hubot-scripts": "^2.16.2",
+    "hubot-shipit": "^0.2.0",
+    "hubot-slack": "^3.3.0",
+    "lodash": "^3.10.1",
+    "node-base64-image": "^0.1.2",
+    "node-fetch": "^1.5.2",
+    "node-youtu-be": "^1.0.1"
+  },
+  "scripts": {
+    "preinstall": "npm install -g coffee-script",
+    "self-preinstall": "npm install -g mocha npm@2.0.0 watch",
+    "localbot": "node_modules\\.bin\\hubot.cmd --name mr.overlord %* || node_modules/.bin/hubot",
+    "mocha": "mocha --compilers coffee:coffee-script/register",
+    "test": "mocha --compilers coffee:coffee-script/register -- ./test",
+    "watchtest": "watch \"npm run mocha -- ./test\" ./test"
+  },
+  "engines": {
+    "node": "6.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "hubot-mock-adapter": "^1.0.0",
+    "mock-hubot": "^1.0.6"
+  }
 }
