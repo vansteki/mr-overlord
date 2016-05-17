@@ -6,16 +6,6 @@ var fetch = require("node-fetch");
 var API_KEY = process.env.GOOGLE_VISION_APIKEY;
 var base64 = require('node-base64-image');
 
-function detectFaces(msg, cmd, image) {
-    vision.detectFaces(image, (err, faces, apiResponse) => {
-        if (!image) return;
-        if (err) throw err;
-        if (cmd.debug) console.log(faces, apiResponse);
-        msg.send(JSON.stringify(faces));
-    });
-}
-
-
 module.exports = (robot) => {
     robot.hear(/vi */i, (msg) => {
         var input = msg.match.input.split(" ");
@@ -71,7 +61,7 @@ function detect(msg, imageUrl) {
             var descs = data.responses[0].labelAnnotations.map(val=>{
                 return val.description
             });
-            msg.send(descs);
+            msg.send(descs.toString());
         });
     }
 }
