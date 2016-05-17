@@ -3,7 +3,7 @@
  */
 var cmd = require("commander");
 var fetch = require("node-fetch");
-var API_KEY = GOOGLE_VISION_APIKEY;
+var API_KEY = process.env.GOOGLE_VISION_APIKEY;
 var base64 = require('node-base64-image');
 
 function detectFaces(msg, cmd, image) {
